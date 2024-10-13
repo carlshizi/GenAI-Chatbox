@@ -1,0 +1,89 @@
+.App {
+  text-align: center;
+  display: flex;
+  background-color: #282c34;
+  color: white;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+}
+.sidemenu {
+  width:240px;
+  border-right: 1px solid #262929;
+  background-color: #202222;
+  padding: 10px;
+}
+.sidemenu-button{
+  padding: 15px;
+  border: 1px solid white;
+  border-radius: 5px;
+  transition: ease 0.1s all;
+}
+.sidemenu-button:hover {
+  background-color: rgba(255,255,255,0.07);
+}
+.sidemenu-button .icon {
+  position:relative;
+  margin-right: 12px; /* Increase space between icon and text */
+  width: 20px; /* Set a smaller width */
+  height: 20px; /* Set a smaller height */
+  left:-10px;
+  top:1px;
+}
+.sidemenu-button .text {
+  position:relative;
+  left:-2px;
+  bottom:3px;
+}
+
+.chatbox {
+  flex:1;
+  background-color: #191a1a;
+  position: relative;
+}
+.chat-input {
+  padding: 40px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.chat-textArea {
+  background-color: #262828;
+  width: 85%; /* Adjust width to make space for the icon */
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 8px 0 rgba(0,0,0,0.1);
+  padding: 20px;
+  color: white;
+  font-size: 1.15em;
+  resize: none;
+  padding-right: 40px;
+}
+
+.sendIcon {
+  position: absolute;
+  right: 120px; /* Position the icon inside the text area */
+  top: 50%;
+  transform: translateY(-50%); /* Center it vertically */
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.sendIcon.inactive {
+  opacity: 0.5; /* Lower opacity when inactive */
+  cursor: default; /* Default cursor, no pointer interaction */
+}
