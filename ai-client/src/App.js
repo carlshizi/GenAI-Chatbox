@@ -21,7 +21,8 @@ function App() {
 
   return (
     <div className="App">
-      <aside className="sidemenu">
+      {/* Left side menu */}
+      <aside className="sidemenu-section">
         <h1>FreeAI</h1>
         <div className="sidemenu-button">
           <img src={AddCircleIcon} alt="New Chat Icon" className="icon" />
@@ -30,26 +31,34 @@ function App() {
       </aside>
 
       {/* Right side chatbox */}
-      <section className="chatbox">
+      <section className="chatbox-section">
         <div className="chat-input">
-          <textArea
-            rows="1"
-            className="chat-textArea"
-            placeholder="Ask me a question..."
-            value={message}
-            onChange={handleInputChange}
-          />
+          <div className="oval-shape">
+            {/* Text Input */}
+            <textArea
+              rows="1"
+              className="chat-textArea"
+              placeholder="Ask me a question..."
+              value={message}
+              onChange={handleInputChange}
+            />
+
+            {/* Button */}
+            <section className="button-section">
+              <img
+                src={sendIcon}
+                alt="Send Icon"
+                className={`sendIcon ${!message.trim() ? 'inactive' : ''}`} 
+                onClick={message.trim() ? sendMessage : null}
+              />
+            </section>
+          </div>
+          
         </div>
       </section>
-      {/* Button */}
-      <section className="chatbox-button">
-        <img
-          src={sendIcon}
-          alt="Send Icon"
-          className={`sendIcon ${!message.trim() ? 'inactive' : ''}`} 
-          onClick={message.trim() ? sendMessage : null}
-        />
-      </section>
+      
+
+
     </div>
   );
 }
