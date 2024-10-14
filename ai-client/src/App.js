@@ -24,13 +24,16 @@ function App() {
     <div className="App">
       {/* Left side menu */}
       <aside className="sidemenu-section">
-        <img src={logo} alt="FreeAI Logo" className="logo" />
-        <h1>FreeAI</h1>
+        <div className="logo-container">
+          <img src={logo} alt="FreeAI Logo" className="logo" />
+          <h2>Visionary Bot</h2>
+        </div>
         <div className="sidemenu-button">
           <img src={AddCircleIcon} alt="New Chat Icon" className="icon" />
-          <span className="text">New Chat</span>
+          <span className="text">Start New Chat</span>
         </div>
       </aside>
+
 
       {/* Right side chatbox */}
       <section className="chatbox-section">
