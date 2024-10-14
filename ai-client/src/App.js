@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 import AddCircleIcon from './assets/add_circle_30dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg';
 import sendIcon from './assets/send_30dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg';
+import logo from './assets/Asset1.png';
 
 function App() {
   const [message, setMessage] = useState('');
@@ -23,6 +24,7 @@ function App() {
     <div className="App">
       {/* Left side menu */}
       <aside className="sidemenu-section">
+        <img src={logo} alt="FreeAI Logo" className="logo" />
         <h1>FreeAI</h1>
         <div className="sidemenu-button">
           <img src={AddCircleIcon} alt="New Chat Icon" className="icon" />

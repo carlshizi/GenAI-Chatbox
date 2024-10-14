@@ -16,6 +16,13 @@
   background-color: #202222;
   padding: 10px;
 }
+.logo {
+  width: 18%;
+  height: 18%;
+  object-fit: contain;
+  padding: 20px;
+}
+
 .sidemenu-button{
   padding: 15px;
   border: 1px solid white;
