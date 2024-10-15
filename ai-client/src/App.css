@@ -10,20 +10,49 @@
   right: 0;
 
 }
-.sidemenu {
+.sidemenu-section {
   width:240px;
-  border-right: 1px solid #262929;
+  border-right: 1px solid #2b2e2e;
   background-color: #202222;
-  padding: 10px;
+  padding: 20px;
 }
+.logo-container {
+  display: flex;
+  align-items: center;
+  padding-bottom: 20px; /* Add space below the logo and text */
+  padding-left: 24px;
+  padding-right: 10px;
+}
+
+.logo {
+  width: 16%;
+  height: 16%;
+  object-fit: contain;
+  margin-right: 10px; /* Add some space between the logo and the text */
+}
+
+.sidemenu-section h2 {
+  font-size: 1.4em;
+  margin: 0;
+  font-weight: 500;
+}
+
+
 .sidemenu-button{
   padding: 15px;
-  border: 1px solid white;
-  border-radius: 5px;
-  transition: ease 0.1s all;
+  border: 1.8px solid #393d3d;
+  border-radius: 18px;
+  transition: ease 0.3s all;
+  margin: 0 10px;
+  padding: 8px;
 }
 .sidemenu-button:hover {
+  /* background-color: rgba(255,255,255,0.07); */
+  border: 1.8px solid #fb7c2f;
+}
+.sidemenu-button:active {
   background-color: rgba(255,255,255,0.07);
+  transition: ease 0.4s;
 }
 .sidemenu-button .icon {
   position:relative;
@@ -32,18 +61,40 @@
   height: 20px; /* Set a smaller height */
   left:-10px;
   top:1px;
+  user-select: none;
+  filter: invert(72%) sepia(6%) saturate(163%) hue-rotate(153deg) brightness(205%) contrast(83%);
+
 }
 .sidemenu-button .text {
+  color:#99a3a3;
   position:relative;
   left:-2px;
   bottom:3px;
+  font-weight: 500;
+  user-select: none;
 }
 
-.chatbox {
+.chatbox-section {
   flex:1;
   background-color: #191a1a;
   position: relative;
 }
+.oval-shape {
+  background-color: #262828;
+  width: 85%;
+  height: auto; /* Adjust height dynamically based on content */
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
+  padding: 2px;
+  color: white;
+  resize: none;
+  display: flex; /* Use flexbox to align items side by side */
+  align-items: center; /* Center vertically */
+  justify-content: space-between; /* Space between the input and button */
+}
+
 .chat-input {
   padding: 40px;
   position: absolute;
@@ -58,32 +109,35 @@
 
 .chat-textArea {
   background-color: #262828;
-  width: 85%; /* Adjust width to make space for the icon */
-  border-bottom-left-radius: 5px;
-  border-top-left-radius: 5px;
+  width:100%; /* Adjust width to make space for the icon */
   border: none;
   outline: none;
-  box-shadow: 0 0 8px 0 rgba(0,0,0,0.1);
-  padding: 20px;
+  padding: 10px;
   color: white;
   font-size: 1.15em;
   resize: none;
-  padding-right: 40px;
 }
 
+.button-section {
+  background-color: transparent;
+  padding-left: 10px;
+  padding-right: 8px;
+}
 .sendIcon {
-  position: absolute;
-  right: 120px; /* Position the icon inside the text area */
-  top: 50%;
-  transform: translateY(-50%); /* Center it vertically */
-  width: 25px;
-  height: 25px;
+  right: 50px; /* Position the icon inside the text area */
+
+  width: 40px;
+  height: 40px;
   cursor: pointer;
   opacity: 1;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.1s ease;
+  bottom: 10px;
+}
+.sendIcon:hover {
+  opacity: 0.5;
 }
 
 .sendIcon.inactive {
-  opacity: 0.5; /* Lower opacity when inactive */
+  opacity: 0.15; /* Lower opacity when inactive */
   cursor: default; /* Default cursor, no pointer interaction */
 }
