@@ -1,6 +1,16 @@
 # GenAI-Chatbox
 Using open-source large language model (LLM)
 
+## clone repo
+git clone https://github.com/carlshizi/GenAI-Chatbox.git
+
+
+## Download .gguf Model
+[Huggingface](https://huggingface.co/TheBloke/Mistral-7B-v0.1-GGUF)
+
+
+
+
 ## AI Client
 check versaions:
 node -v
@@ -12,10 +22,12 @@ npm install
 
 ## AI Server
 git clone https://github.com/ggerganov/llama.cpp
+
 cd llama.cpp
 
 ## Installation instruction
-[link](https://github.com/ggerganov/llama.cpp/blob/master/docs/build.md)
+[Build llama.c locally](https://github.com/ggerganov/llama.cpp/blob/master/docs/build.md)
+
 Using make:
 
 On Linux or MacOS:
@@ -58,3 +70,21 @@ sudo apt install build-essential
 5. Compile and Run the Project:
 Run the following command to compile:
 `make`
+
+
+## Install python dependencies
+```
+pip install openai 'llama-cpp-python[server]' pydantic instructor
+```
+
+## Running the LLaMA.cpp Server
+To run the server with a model, use the following command, replacing YOUR_MODEL_FILE.gguf with the path to the model file you'd like to use:
+
+```
+python -m llama_cpp.server --model models\YOUR_MODEL_FILE.gguf --n_gpu -1
+```
+
+Note: Ensure that the model file is placed in the models folder, and you can replace YOUR_MODEL_FILE.gguf with any model file (e.g., mistral-7b-v0.1.Q4_K_M.gguf).
+
+
+python -m llama_cpp.server --model models\mistral-7b-instruct-v0.1.Q4_0.gguf --n_gpu -1
