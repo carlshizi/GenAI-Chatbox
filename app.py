@@ -14,8 +14,17 @@ response = client.chat.completions.create(
     # ]
 
     messages=[
-        {"role": "user", "content": "reverse a linked list in java"}
-    ]
+        {"role": "user", "content": "What is the meaning of life?"},
+    ],
+    stream=True,
 )
 
-print(response)
+for response_line in response:
+    if response_line.choices[0].delta.content:
+        print(response_line.choices[0].delta.content, end="")
+    else:
+        print(".", end="")
+    # if response_line.choices[0].delta.content is not None:
+    #     print(response_line.choices[0].delta.content, flush=True, end="")
+
+
