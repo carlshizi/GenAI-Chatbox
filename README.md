@@ -124,8 +124,6 @@ There shouldn't be any conflicts, but you can check for any running processes on
       sudo kill -9 <PID>
       ```
 
-<br>
-
 ___
 
 Feel free to open an issue on GitHub if you encounter any issues or have suggestions for improvement.
