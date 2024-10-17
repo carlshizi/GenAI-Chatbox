@@ -80,7 +80,7 @@ This app is built of a multi-level architecture, combining open-source LLM model
       ```
 
 
-## Final NOtes
+## Final Notes
 I have configured the ports to load without conflicts:
 - Llama.cpp runs on port 8000.
 - The Application Server runs on port 8001.
