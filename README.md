@@ -1,90 +1,82 @@
 # GenAI-Chatbox
-Using open-source large language model (LLM)
+![logo](./ai-client/src/assets/Asset1.png)
 
-## clone repo
-git clone https://github.com/carlshizi/GenAI-Chatbox.git
+## Overview
+This app is built of a multi-level architecture, combining open-source LLM models with a custom-built API server and a client interface.
 
+**Prerequisites:**
+- **Python**: 3.10 or higher
+- **Node.js**: 18.16.0 or higher
 
-## Download .gguf Model
-[Huggingface](https://huggingface.co/TheBloke/Mistral-7B-v0.1-GGUF)
+**Language Model:**
+- **Mistral-7B** open-source Large Language Model efficiently runs using **LLaMA.cpp** optimized for local inference
 
+**API Server:**
+- **FastAPI**: fascilitates the interaction between the client and the language model. **OpenAI API** configured to operate locally with Mistral-7B, without any external calls
 
-
-
-## AI Client
-check versaions:
-node -v
-npm -v
-
-### if not installed:
-npm install
+**Client Interface:**
+- **React** framework is used for building a simple and intuitive frontend
 
 
-## AI Server
-git clone https://github.com/ggerganov/llama.cpp
-
-cd llama.cpp
-
-## Installation instruction
-[Build llama.c locally](https://github.com/ggerganov/llama.cpp/blob/master/docs/build.md)
-
-Using make:
-
-On Linux or MacOS:
-
-make
-On Windows (x86/x64 only, arm64 requires cmake):
-
-Download the latest fortran version of w64devkit.
-Extract w64devkit on your pc.
-Run w64devkit.exe.
-Use the cd command to reach the llama.cpp folder.
-From here you can run:
-make
-
-## For running llama.cpp on a Windows machine, I prefer Windows Subsystem for Linux
-Setting Up WSL (Windows Subsystem for Linux)
-1. Install WSL:
-
-Open PowerShell or Command Prompt as Administrator and run the following command:
-wsl --install
-This will install the latest version of WSL and set up the default Linux distribution (Ubuntu).
-
-2. Check if WSL is Installed:
-After installation, you can check if WSL is installed and list available distributions by running:
-wsl --list --verbose
-
-3. Start Ubuntu:
-To start the default WSL distribution (e.g., Ubuntu), use the following command:
-wsl
-If you have multiple distributions, specify Ubuntu by running:
-wsl -d Ubuntu
-
-4. Install Necessary Build Tools:
-Once inside the Ubuntu terminal, update the package list and install the necessary build tools:
-```
-sudo apt update
-sudo apt install build-essential
-```
-
-5. Compile and Run the Project:
-Run the following command to compile:
-`make`
+## Installation
+1. clone the repository
+    ```
+    git clone https://github.com/carlshizi/GenAI-Chatbox.git
+    ```
 
 
-## Install python dependencies
-```
-pip install openai 'llama-cpp-python[server]' pydantic instructor
-```
+2. Create a new virtual environment (Optional)
+- Activate the virtual environment:
+  - On Windows:
 
-## Running the LLaMA.cpp Server
-To run the server with a model, use the following command, replacing YOUR_MODEL_FILE.gguf with the path to the model file you'd like to use:
+    ```
+    python -m venv venv
+    venv\Scripts\activate
+    ```
+  - On MacOS/Linux:
+    ```
+    python -m venv venv
+    source venv/Scripts/activate
+    ```
 
-```
-python -m llama_cpp.server --model models\YOUR_MODEL_FILE.gguf --n_gpu -1
-```
+3. Install python dependencies
+    ```
+    pip install -r requirements.txt
+    ```
 
-Note: Ensure that the model file is placed in the models folder, and you can replace YOUR_MODEL_FILE.gguf with any model file (e.g., mistral-7b-v0.1.Q4_K_M.gguf).
+4. Download .gguf Model
+    You have a few options, but I recommend downloading the model from [Huggingface](https://huggingface.co/TheBloke/Mistral-7B-v0.1-GGUF), and place the model in the `models` folder.
 
 
-python -m llama_cpp.server --model models\mistral-7b-instruct-v0.1.Q4_0.gguf --n_gpu -1
+5. Clone the Llama.cpp repository (AI server)
+    ```
+    git clone https://github.com/ggerganov/llama.cpp
+    ```
+
+6. Install Llama.cpp:
+    - On MacOS/Linux:
+      ```
+      make
+      ```
+    - On Windows (*follow the instruction below*):
+      - Installation instruction: [Build llama.c locally](https://github.com/ggerganov/llama.cpp/blob/master/docs/build.md)
+
+
+7. Start the Application Server, AI Server, and Client Interface
+    - Open a terminal in the project root, and start the AI Server.
+    
+      *Replace YOUR_MODEL_FILE.gguf with the path to the model file you'd like to use:*
+      
+      *(Note: Ensure that the model file is placed in the models folder)*
+      ```
+      python -m llama_cpp.server --model models\YOUR_MODEL_FILE.gguf --n_gpu -1
+      ```
+    - Open another terminal in the project root, and start the Application Server
+      ```
+      python app.py
+      ```
+
+    - Open another terminal in the `ai-client` folder, and start the Client Interface
+      ```
+      npm start
+      ```
