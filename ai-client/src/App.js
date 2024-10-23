@@ -98,7 +98,7 @@ function App() {
       <aside className="sidemenu-section">
         <div className="logo-container">
           <img src={logo} alt="FreeAI Logo" className="logo" />
-          <h2>Vision Bot</h2>
+          <h2>VisionBot</h2>
         </div>
         <div className="sidemenu-button" onClick={startNewChat}>
           <img src={AddCircleIcon} alt="New Chat Icon" className="icon" />
